@@ -1,0 +1,49 @@
+.date-strip-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 0.5rem 1rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    gap: 0.5rem;
+    white-space: nowrap;
+  }
+  
+  .date-strip-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+  }
+  
+  .date-strip-month {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+    color: #555;
+  }
+  
+  .date-strip-button {
+    border: none;
+    background: none;
+    padding: 0.3rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: center;
+    transition: 0.2s ease;
+  }
+  
+  .date-strip-button:hover {
+    background-color: #eee;
+  }
+  
+  .date-strip-button.today {
+    border: 1px solid #2196f3;
+    color: #2196f3;
+  }
+  
+  .date-strip-button.selected {
+    background-color: #2196f3;
+    color: white;
+  }
+  

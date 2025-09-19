@@ -1,0 +1,299 @@
+/* General wrapper */
+.calendar-wrapper {
+  padding: 1rem;
+}
+
+/* ---------- Mobile View Styling ---------- */
+
+.mobile-calendar {
+  position: relative;
+  padding-bottom: 4rem; /* for floating button spacing */
+}
+
+/* Horizontal date strip */
+.date-strip {
+  display: flex;
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.date-cell {
+  flex: 0 0 auto;
+  width: 50px;
+  padding: 0.5rem 0;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s ease;
+}
+
+.date-cell:hover {
+  background-color: #f5f5f5;
+}
+
+.date-cell.selected {
+  border-bottom: 2px solid #007bff;
+  font-weight: bold;
+  background-color: #e6f0ff;
+}
+
+.date-cell .day {
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.date-cell .date {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Day view slots */
+.day-view {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hour-slot {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+
+.hour-slot span {
+  width: 50px;
+  font-size: 0.85rem;
+  color: #888;
+  flex-shrink: 0;
+}
+
+.slot-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Event display */
+.event-card {
+  background-color: #007bff;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  word-wrap: break-word;
+}
+
+/* Floating + button */
+.floating-add-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 76px;
+  border: none;
+  border-radius: 50%;
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  font-size: 2.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1100;
+  display: none; /* Default hidden */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.floating-add-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.floating-add-btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+/* ---------- Modal Styling ---------- */
+
+.modal {
+  position: relative;
+  background: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 700px;
+  max-height: 70vh;
+  overflow-y: auto;
+  margin: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  top: 10vh;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.calendar-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.calendar-form label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.calendar-form input,
+.calendar-form textarea {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.calendar-form textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.calendar-form button[type='submit'] {
+  padding: 0.6rem;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.modal-close-btn:hover {
+  color: #d33;
+}
+
+.facility-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.facility-radio {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  background-color: #2a2a2a;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.facility-radio input {
+  margin-right: 0.6rem;
+}
+
+/* Color themes by facility */
+.facility-radio.crossroads-youth-center-cyc {
+  background-color: #1e90ff22;
+  color: #1e90ff;
+}
+.facility-radio.fpcp-conference-room {
+  background-color: #28a74522;
+  color: #28a745;
+}
+.facility-radio.cyc-conference-room {
+  background-color: #ffc10733;
+  color: #b08500;
+}
+.facility-radio.fpcp-training-room-a {
+  background-color: #6f42c133;
+  color: #6f42c1;
+}
+.facility-radio.fpcp-training-room-b {
+  background-color: #fd7e1433;
+  color: #fd7e14;
+}
+
+.facility-radio:hover {
+  border-color: #888;
+}
+
+/* Highlight when selected */
+.facility-radio.selected {
+  border-color: #4caf50; /* Green border when selected */
+  box-shadow: 0 0 10px #4caf50aa;
+  transform: scale(1.02);
+}
+
+.plus-icon {
+  margin-top: -2px; /* vertically center the + */
+}
+
+/* 📱 Mobile fix */
+@media (max-width: 800px) {
+  .modal {
+    width: 85%;
+    max-height: 80vh;
+    padding: 1rem;
+  }
+
+  .calendar-form input,
+  .calendar-form textarea {
+    font-size: 0.95rem;
+  }
+
+  .calendar-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .rbc-calendar {
+    min-width: 800px; /* Ensures all days fit horizontally */
+  }
+
+  .rbc-time-content {
+    min-width: 800px;
+  }
+
+  .rbc-time-view {
+    overflow-x: auto;
+  }
+
+  .rbc-timeslot-group {
+    min-height: 40px; /* Optional: adjust vertical slot height */
+  }
+  
+  .floating-add-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
