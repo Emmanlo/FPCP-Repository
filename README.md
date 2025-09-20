@@ -1,3 +1,13 @@
+Install Node > Download PostgreSQL > import FPCPDB.json in PgAdmin
+
+Start Node and Server
+cd ...my-app/client (frontend)
+npm run dev
+
+cd ...my-app/server (backend)
+node server.js
+
+
 ****Install Node.js****
 Download and install from nodejs.org: https://nodejs.org/en
 
